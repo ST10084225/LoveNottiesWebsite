@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@model NottiesRebuiltV3.Models.NewsLetterModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body id="page-top">
+    <!-- Navigation-->
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">Our Privacy Policy</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                        Learn More about our sites privacy policy.
+                    </h2>
+                    <a class="btn btn-primary" href="#about">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="about-section text-center pb-5" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="bg_glass row gx-4 gx-lg-5 justify-content-center p-3">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">Love Notties Privacy Policy</h2>
+                    <img class="img-fluid mb-5" src="https://lovenottiesblob.blob.core.windows.net/miscimages/logopng.png" alt="..." />
+                    <div id="container" class="text-white">
+                        <p><strong>Effective Date:</strong> 6 December 2023</p>
+
+                        <p>Thank you for visiting Love Notties. This Privacy Policy is designed to inform you about the types of information that may be collected and used on our website. Please read this Privacy Policy carefully before using our site or submitting any personal information.</p>
+
+                        <h2>1. Information We Collect:</h2>
+
+                        <p>We may collect the following types of information when you visit our website:</p>
+
+                        <ul>
+                            <li><strong>Personal Information:</strong> We do not collect any personally identifiable information without your consent.</li>
+                            <li><strong>Non-Personal Information:</strong> We may collect non-personal information to improve the functionality and content of our site.</li>
+                        </ul>
+
+                        <h2>2. Cookies:</h2>
+
+                        <p>We use cookies to enhance your experience on our website. You can choose to disable cookies through your browser settings.</p>
+
+                        <h2>3. Data Anonymization:</h2>
+
+                        <p>All data collected on our website is anonymized to protect your privacy. We do not store personally identifiable information, and any data collected is used solely for statistical purposes to analyze and improve the user experience.</p>
+
+                        <h2>4. South African POPI Act Compliance:</h2>
+
+                        <p>We are committed to protecting your privacy in accordance with the Protection of Personal Information Act (POPIA) of South Africa.</p>
+
+                        <h2>5. Third-Party Links:</h2>
+
+                        <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these third-party sites.</p>
+
+                        <h2>6. Security:</h2>
+
+                        <p>We take appropriate measures to secure your data against unauthorized access, disclosure, alteration, or destruction.</p>
+
+                        <h2>7. Changes to Privacy Policy:</h2>
+
+                        <p>We reserve the right to update or modify this Privacy Policy at any time without prior notice.</p>
+
+                        <h2>8. Contact Information:</h2>
+
+                        <p>If you have any questions or concerns about our Privacy Policy, please contact us at lovenotties@gmail.com.</p>
+
+                    </div>
+
+                    <div id="footer" class="text-white">
+                        <p>By using our website, you consent to the terms of this Privacy Policy. Thank you for choosing Love Notties.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Projects-->
+
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Address</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">103 Old Main Road, Nottingham Road, 3280 (Midlands Animal Feeds)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50"><a href="#!">lovenotties@gmail.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">065–738-5818</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center">
+                <a class="mx-2" href="https://www.instagram.com/love_notties/"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2" href="https://www.facebook.com/lovenotties/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </section>
+</body>

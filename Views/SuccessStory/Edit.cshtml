@@ -1,0 +1,42 @@
+﻿@model NottiesRebuiltV3.Models.SuccessStory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<body>
+    <section class="about-section text-white">
+        <h2 class="m-2">Edit this success story post</h2>
+        <hr />
+        <div class="row m-2">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SuccessStoryID" />
+                    <input type="hidden" asp-for="SuccessStoryImageID" />
+            <div class="form-group">
+                <label asp-for="SuccessStoryTitle" class="control-label"></label>
+                <input asp-for="SuccessStoryTitle" class="form-control" />
+                <span asp-validation-for="SuccessStoryTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuccessStoryDescription" class="control-label"></label>
+                <input asp-for="SuccessStoryDescription" class="form-control" />
+                <span asp-validation-for="SuccessStoryDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="mt-2">Back to List</a>
+        </div>
+    </section>
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

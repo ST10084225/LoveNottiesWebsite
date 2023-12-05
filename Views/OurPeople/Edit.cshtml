@@ -1,0 +1,51 @@
+﻿@model NottiesRebuiltV3.Models.OurPeople
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<body>
+    <section class="about-section text-white">
+        <h2 class="m-2">Edit this our people post</h2>
+        <hr />
+        <div class="row m-2">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OurPersonID" />
+                    <input type="hidden" asp-for="OurPersonImageID" />
+            <div class="form-group">
+                <label asp-for="OurPersonFirstName" class="control-label"></label>
+                <input asp-for="OurPersonFirstName" class="form-control" />
+                <span asp-validation-for="OurPersonFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OurPersonLastName" class="control-label"></label>
+                <input asp-for="OurPersonLastName" class="form-control" />
+                <span asp-validation-for="OurPersonLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OurPersonTitle" class="control-label"></label>
+                <input asp-for="OurPersonTitle" class="form-control" />
+                <span asp-validation-for="OurPersonTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OurPersonDescription" class="control-label"></label>
+                <input asp-for="OurPersonDescription" class="form-control" />
+                <span asp-validation-for="OurPersonDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="mt-2">Back to List</a>
+        </div>
+    </section>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

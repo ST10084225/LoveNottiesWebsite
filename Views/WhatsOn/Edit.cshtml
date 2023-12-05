@@ -1,0 +1,44 @@
+﻿@model NottiesRebuiltV3.Models.WhatsOnModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<body>
+<section class="about-section text-white">
+<h2 class="m-2">Edit this What's On Post</h2>
+<hr />
+<div class="row m-2">
+    <div class="col-md-4">
+       <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostID" />
+            <input type="hidden" asp-for="PostDate" />
+            <input type="hidden" asp-for="PostImageID" />
+
+            <div class="form-group">
+                <label asp-for="PostTitle" class="control-label"></label>
+                <input asp-for="PostTitle" class="form-control" />
+                <span asp-validation-for="PostTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostDescription" class="control-label"></label>
+                <input asp-for="PostDescription" class="form-control" />
+                <span asp-validation-for="PostDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="mt-2">Back to List</a>
+</div>
+</section>
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

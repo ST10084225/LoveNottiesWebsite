@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body>
+    <section class="signup-section bg-light" id="projects">
+
+@if (SignInManager.IsSignedIn(User) & User.IsInRole("Manager"))
+                                    {
+<div class="d-flex container px-4 px-lg-5">
+<div class="bg_glass row gx-0 mt-5 mb-lg-0 justify-content-center" style="padding:2rem">
+
+    <h1 class="m-2 text-white">Newsletter Email Addresses (Paste in gmail)</h1>
+    <p class="text-white m-2">
+        @ViewBag.Emails
+    </p>
+
+    </div>
+    </div>
+}
+else if (!SignInManager.IsSignedIn(User))
+{
+    <p>
+        You Shouldn't be here, your IP has being recorded, further security breaches from you will be tracked.
+    </p>
+}
+    
+    </section>
+</body>
+

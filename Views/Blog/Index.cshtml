@@ -1,0 +1,154 @@
+﻿@model IEnumerable<NottiesRebuiltV3.Models.BlogItem>;
+@using NottiesRebuiltV3.Models.Repositories.Abstract;
+@using NottiesRebuiltV3.Models.Repositories.Implemented;
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SignInManager;
+@inject UserManager<IdentityUser> UserManager;
+@inject IBlobService _IblobService;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<body id="page-top">
+    <!-- Navigation-->
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">Blogs</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                        Catch Up with Everything Love Notties </br>
+                        In One Place.
+                    </h2>
+                    <a class="btn btn-primary" href="#about">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="d-flex container px-4 px-lg-5">
+           @if (SignInManager.IsSignedIn(User) & User.IsInRole("Manager"))
+{
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+}
+
+    <div class="grid_items">
+                @foreach (var item in Model)
+                {
+                    <div class="grid_item">
+                    <div class="bg_glass row gx-0 mb-5 mb-lg-0 justify-content-center" style="margin-top: 20px;">
+                        <div class="text-center h-100 project">
+                            <div class=" h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h2 class="text-white p-2">@Html.DisplayFor(modelItem => item.BlogTitle)</h2>
+                                        <img class="d-block user-select-none coverImage" src="https://lovenottiesblob.blob.core.windows.net/blogimages/@(item.BlogID)" alt="..." />
+                                    <h4 class="text-white-50 p-2">
+                                        @if (item.BlogDescription.Length >= 75)
+                                        {
+
+                                            @(item.BlogDescription.Substring(0, 75)) <a asp-controller="Blog" asp-action="Details" asp-route-id="@(item.BlogID)">...Read More</a>
+                                        }
+                                        else
+                                        {
+                                            @(item.BlogDescription) <a asp-controller="Blog" asp-action="Details" asp-route-id="@(item.BlogID)">...Read More</a>
+                                        }
+                                    </h4>
+                                        <p class="text-white">Posted: @Html.DisplayFor(modelItem => item.BlogDate)</p>
+                                    @if (SignInManager.IsSignedIn(User) & User.IsInRole("Manager"))
+                                    {
+                                        <a class="btn btn-outline-warning" asp-controller="Blog" asp-action="Edit" asp-route-id="@(item.BlogID)">Edit</a>
+                                        <a class="btn btn-outline-danger" asp-controller="Blog" asp-action="Delete" asp-route-id="@(item.BlogID)">Delete</a>
+                                        <p class="text-white">Views: @Html.DisplayFor(modelItem => item.BlogViews)</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                }
+
+            </div>
+@*@foreach (var item in Model) {
+              
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center" style="margin-top: 20px;">
+                        <div class="bg-black text-center h-100 project">
+                            <div class=" h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h2 class="text-white">@Html.DisplayFor(modelItem => item.BlogTitle)</h2>
+                                    <img class="d-block user-select-none coverImage" src="https://lovenottiesstoragetest.blob.core.windows.net/blogimages/@(item.BlogID)" alt="..." />
+                                    <h4 class="text-white-50">
+                                        @if (item.BlogDescription.Length >= 75)
+                                        {
+
+                                            @(item.BlogDescription.Substring(0, 75)) <a asp-controller="Blog" asp-action="Details" asp-route-id="@(item.BlogID)">...Read More</a>
+                                        }
+                                        else
+                                        {
+                                            @(item.BlogDescription) <a asp-controller="Blog" asp-action="Details" asp-route-id="@(item.BlogID)">...Read More</a>
+                                        }
+                                    </h4>
+                                    @if (SignInManager.IsSignedIn(User) & User.IsInRole("Manager"))
+                    {
+                            <a class="btn btn-outline-warning" asp-controller="Blog" asp-action="Edit" asp-route-id="@(item.BlogID)">Edit</a>
+                            <a class="btn btn-outline-danger" asp-controller="Blog" asp-action="Delete" asp-route-id="@(item.BlogID)">Delete</a>
+                                        <p class="card-footer">Views: @Html.DisplayFor(modelItem => item.BlogViews) | Posted: @Html.DisplayFor(modelItem => item.BlogDate)</p>
+                    }
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+}*@
+</div>
+
+    </section>
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Address</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">103 Old Main Road, Nottingham Road, 3280 (Midlands Animal Feeds)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50"><a href="#!">lovenotties@gmail.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50">065–738-5818</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center">
+                <a class="mx-2" href="https://www.instagram.com/love_notties/"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2" href="https://www.facebook.com/lovenotties/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </section>
+</body>
+

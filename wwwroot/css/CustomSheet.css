@@ -1,0 +1,107 @@
+﻿
+/*.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0px;
+    overflow: hidden;
+}*/
+
+.btn-notties {
+    color: #000;
+    background-color: #046737;
+    border-color: #74AB8A;
+}
+
+.coverImage {
+    object-fit: cover;
+    width: 100%;
+    height: 450px;
+}
+
+.coverImageView {
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+}
+
+.coverQRImage {
+    object-fit: scale-down;
+    width: 50%;
+    height: 50%;
+}
+
+.coverImageDetails {
+    object-fit: cover;
+    width: 100%;
+    height: 450px;
+}
+
+.ImageRoundBorders {
+    --bs-card-inner-border-radius: calc(0.5rem - 1px);
+
+    border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+    border-bottom-right-radius: var(--bs-card-inner-border-radius);
+    border-bottom-left-radius: var(--bs-card-inner-border-radius);
+
+}
+
+.detailImage {
+    object-fit:scale-down;
+    width: 100%;
+    height: 100%;
+}
+
+.grid_items {
+    padding: 1.75%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+@media only screen and (min-width: 640px) {
+    .grid_items {
+        grid-template-columns: 100%;
+        grid-column-gap: 5%;
+        grid-row-gap: 40px;
+    }
+
+        .grid_items > div {
+            padding: 20px;
+        }
+}
+
+@media only screen and (min-width: 981px) {
+    .grid_items {
+        grid-template-columns: 50% 50%;
+        grid-row-gap: 20px;
+    }
+
+        .grid_items > div {
+            padding: 0;
+        }
+}
+
+@media only screen and (min-width: 1280px) {
+    .grid_items {
+        grid-template-columns: 50% 50%;
+        grid-row-gap: 5px;
+    }
+
+        .grid_items > div {
+            padding: 0;
+        }
+}
+
+.bg_glass {
+    /* From https://css.glass */
+    background: linear-gradient(to bottom, rgba(116, 171, 138, 0.35) 0%, rgba(61, 137, 91, 0.50) 25%, rgba(4, 103, 55, 0.75) 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+}

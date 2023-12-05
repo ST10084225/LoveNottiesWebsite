@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NottiesRebuiltV3.props" />
+</Project>
